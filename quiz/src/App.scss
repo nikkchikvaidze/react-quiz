@@ -1,0 +1,93 @@
+// Color Palette
+$main: #F5E7C6;
+$success-light: #294122;
+$success-dark: #162114;
+$warning: #FF6D1F;
+$text: #222222;
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+  background-color: $main;
+}
+
+.welcome-container {
+  transition: all 2s ease;
+
+  .btn-start {
+    color: $text;
+    padding: .7rem;
+    transition: all .5s ease;
+  
+    &:hover {
+      color: $main;
+      background-color: $text;
+    }
+  }
+}
+
+.btn {
+  border: none;
+    font-family: "Open Sans", sans-serif;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid $text;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: .7rem;
+}
+
+.d-flex {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mb {
+  margin-bottom: 1rem;
+}
+
+.t-center {
+  text-align: center;
+}
+
+.btn-option {
+  display: block;
+  max-width: 90%;
+  width: 30rem;
+  text-align: left;
+  transition: all .4s ease-in-out;
+
+  &:hover {
+    transform: translateX(3%);
+    background-color: $text;
+    color: $main;
+  }
+}
+
+.question-title {
+  max-width: 90%;
+  width: 30rem;
+  text-align: center;
+}
+
+.correct {
+  background-color: $success-light;
+  color: white
+}
+
+.wrong {
+  background-color: $warning;
+  color: white;
+}
+
+.disabled {
+  pointer-events: none;
+}
