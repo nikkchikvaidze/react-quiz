@@ -32,14 +32,18 @@ body {
 
 .btn {
   border: none;
-    font-family: "Open Sans", sans-serif;
-    cursor: pointer;
-    background-color: transparent;
-    border: 1px solid $text;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: 600;
-    padding: .7rem;
+  font-family: "Open Sans", sans-serif;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid $text;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: .7rem;
+  &:hover {
+    color: $main;
+    background-color: $text;
+  }
 }
 
 .d-flex {
@@ -54,13 +58,8 @@ body {
   margin-bottom: 1rem;
 }
 
-.t-center {
-  text-align: center;
-}
-
 .btn-option {
   display: block;
-  max-width: 90%;
   width: 30rem;
   text-align: left;
   transition: all .4s ease-in-out;
@@ -73,6 +72,7 @@ body {
 }
 
 .question-title {
+  display: block;
   max-width: 90%;
   width: 30rem;
   text-align: center;
@@ -91,3 +91,46 @@ body {
 .disabled {
   pointer-events: none;
 }
+
+.mt {
+  margin-top: 2rem;
+}
+
+.progress {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.d-flex-progress {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.btn-next {
+  border: none;
+  font-family: "Open Sans", sans-serif;
+  cursor: pointer;
+  background-color: transparent;
+  color: $text;
+  border: 1px solid $text;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  transition: all .4s ease-in-out;
+}
+
+.btn-next-click {
+  background-color: $text;
+  color: white;
+}
+
+.t-left {
+  text-align: left;
+}
+
+.t-center {
+  text-align: center;
+}
+

@@ -33,19 +33,27 @@ const reducer = (state, action) => {
             ? state.points + question.points
             : state.points,
       };
+    case 'next':
+      return {
+        ...state,
+        index: state.index + 1,
+        answer: null
+      }
     default:
       console.log('No action dispatched');
   }
 };
 
 function App() {
-  const [{ questions, index, status, answer }, dispatch] = useReducer(
+  const [{ questions, index, status, answer, points }, dispatch] = useReducer(
     reducer,
     initialState,
   );
 
+  const totalQuestions = questions.length
+
   return (
-    <div className="test">
+    <div>
       {status === 'init' && <Welcome dispatch={dispatch} />}
       {status === 'active' && (
         <Main>
@@ -53,6 +61,9 @@ function App() {
           <Option
             question={questions[index]}
             answer={answer}
+            index={index}
+            totalQuestions={totalQuestions}
+            points={points}
             dispatch={dispatch}
           />
         </Main>
