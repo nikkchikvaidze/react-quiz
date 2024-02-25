@@ -15,6 +15,7 @@ const initialState = {
   index: 0,
   answer: null,
   points: 0,
+  correctAnswers: 0,
 };
 const reducer = (state, action) => {
   switch (action.type) {
@@ -28,6 +29,10 @@ const reducer = (state, action) => {
       return {
         ...state,
         answer: action.payload,
+        correctAnswers:
+          question.correctOption === action.payload
+            ? state.correctAnswers + 1
+            : state.correctAnswers,
         points:
           question.correctOption === action.payload
             ? state.points + question.points
@@ -37,8 +42,8 @@ const reducer = (state, action) => {
       return {
         ...state,
         index: state.index + 1,
-        answer: null
-      }
+        answer: null,
+      };
     default:
       console.log('No action dispatched');
   }
@@ -50,7 +55,7 @@ function App() {
     initialState,
   );
 
-  const totalQuestions = questions.length
+  const totalQuestions = questions.length;
 
   return (
     <div>
