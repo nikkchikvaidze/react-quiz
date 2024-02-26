@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
-function Countdown() {
-  const [count, setCount] = useState(10);
+function Countdown({ dispatch }) {
+  const [count, setCount] = useState(180);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -14,11 +14,16 @@ function Countdown() {
         }
       });
     }, 1000);
-
     return () => {
       clearInterval(timer);
     };
   }, []);
+
+  useEffect(() => {
+    if (count < 1) {
+      dispatch({ type: 'timeout', payload: true });
+    }
+  }, [count, dispatch]);
 
   const minutes = Math.floor(count / 60);
   const seconds = count % 60;

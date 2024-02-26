@@ -15,7 +15,7 @@ body {
   background-color: $main;
 }
 
-.welcome-container {
+.container {
   transition: all 2s ease;
 
   .btn-start {
@@ -141,4 +141,8 @@ body {
 
 .danger {
   color: #e91d1d;
+}
+
+.success {
+  color: rgb(9, 168, 9);
 }

@@ -1,10 +1,10 @@
 import Countdown from './Countdown';
 
-function Main({ children }) {
+function Main({ children, dispatch }) {
   return (
     <div className="d-flex">
       {children}
-      <Countdown />
+      <Countdown dispatch={dispatch} />
     </div>
   );
 }

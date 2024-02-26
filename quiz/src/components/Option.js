@@ -1,5 +1,15 @@
-function Option({ question, answer, index, totalQuestions, points, dispatch }) {
+function Option({
+  question,
+  answer,
+  index,
+  totalQuestions,
+  points,
+  totalPoints,
+  dispatch,
+  questions,
+}) {
   const hasAnswered = answer !== null;
+  const isLastQuestion = index === questions.length - 1;
   return (
     <div className="question-title">
       {question.options.map((option, index) => (
@@ -15,9 +25,27 @@ function Option({ question, answer, index, totalQuestions, points, dispatch }) {
         <div className="progress progress-container">
           Quiz Progress: {index + 1}/{totalQuestions}
         </div>
-        {<button disabled={!hasAnswered} onClick={()=> dispatch({type: 'next'})} className={`btn-next ${hasAnswered && 'btn-next-click'}`}>Next</button>}
+        {isLastQuestion ? (
+          <button
+            disabled={!hasAnswered}
+            onClick={() => dispatch({ type: 'finish' })}
+            className={`btn-next ${hasAnswered && 'btn-next-click'}`}
+          >
+            Finish
+          </button>
+        ) : (
+          <button
+            disabled={!hasAnswered}
+            onClick={() => dispatch({ type: 'next' })}
+            className={`btn-next ${hasAnswered && 'btn-next-click'}`}
+          >
+            Next
+          </button>
+        )}
       </div>
-      <div className="t-left progress">Points: {points}</div>
+      <div className="t-left progress">
+        Points: {points}/{totalPoints}
+      </div>
     </div>
   );
 }
