@@ -1,4 +1,8 @@
-function Welcome({ dispatch }) {
+import { useQuestion } from '../context/QuestionProvider';
+
+function Welcome() {
+  const { dispatch } = useQuestion();
+
   return (
     <div className="container d-flex">
       <h1 className="t-center">Welcome to the React Quiz!</h1>

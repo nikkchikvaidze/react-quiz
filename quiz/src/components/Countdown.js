@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
+import { useQuestion } from '../context/QuestionProvider';
 
-function Countdown({ dispatch }) {
+function Countdown() {
   const [count, setCount] = useState(180);
+  const {dispatch} = useQuestion();
 
   useEffect(() => {
     const timer = setInterval(() => {

@@ -1,11 +1,12 @@
-function Finish({
-  points,
-  totalPoints,
-  totalQuestions,
-  correctAnswers,
-  dispatch,
-  timeout,
-}) {
+import { useQuestion } from '../context/QuestionProvider';
+
+function Finish() {
+  const {
+    state: { timeout, correctAnswers, questions, points },
+    dispatch,
+  } = useQuestion();
+  const totalQuestions = questions.length;
+  const totalPoints = questions.reduce((acc, cur) => acc + cur.points, 0);
   const correctAnswersPercentage = Math.ceil((points / totalPoints) * 100);
 
   return (

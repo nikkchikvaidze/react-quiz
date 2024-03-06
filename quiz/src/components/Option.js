@@ -1,15 +1,15 @@
-function Option({
-  question,
-  answer,
-  index,
-  totalQuestions,
-  points,
-  totalPoints,
-  dispatch,
-  questions,
-}) {
+import { useQuestion } from '../context/QuestionProvider';
+
+function Option() {
+  const {
+    state: { questions, answer, index, points },
+    dispatch,
+  } = useQuestion();
+  const totalQuestions = questions.length;
+  const totalPoints = questions.reduce((acc, cur) => acc + cur.points, 0);
   const hasAnswered = answer !== null;
   const isLastQuestion = index === questions.length - 1;
+  const question = questions[index];
   return (
     <div className="question-title">
       {question.options.map((option, index) => (
